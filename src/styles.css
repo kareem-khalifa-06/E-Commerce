@@ -2,3 +2,6 @@
 .main-color{
     color: #177e39 !important;
 }
+.cursor-pointer{
+    cursor: pointer;
+}

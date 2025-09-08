@@ -1,1 +1,32 @@
-<p>recipes works!</p>
+<section>
+   <div class="container bg-light">
+    <div class="mb-3 w-50 mx-auto my-3">
+        <label for="search" class="form-label">
+            Search
+        </label>
+        <input type="text" class="form-control" id="search" placeholder="Search Here..." #searchBar (change)="searchRecipe()">
+    </div>
+    <div class="row g-3">
+        
+            @for(recipe of recipesData;track $index){
+                <div class="col-md-4" >
+                    <a [href]="recipe.source_url" target="_blank" class="text-decoration-none"><div class="card cursor-pointer" >
+                        <img src="{{recipe.image_url}}" class="card-img-top w-100" alt="recipe.title" href>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{                   recipe.title}}
+                            </h5>
+                            <h6 class="card-title">
+                                {{                   recipe.publisher}}
+                            </h6>
+                            
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div></a>
+                    
+                
+    </div>}
+   </div>
+    </div>
+
+</section>

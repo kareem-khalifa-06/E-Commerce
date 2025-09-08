@@ -10,6 +10,7 @@ import { LoginComponent } from '../Components/login/login.component';
 import { RegisterComponent } from '../Components/register/register.component';
 import { ShopComponent } from '../Components/shop/shop.component';
 import { BlogComponent } from '../Components/blog/blog.component';
+import { RecipesComponent } from '../Components/recipes/recipes.component';
 
 export const routes: Routes = [
     {
@@ -28,7 +29,9 @@ export const routes: Routes = [
         { path: 'user-home', component: UserHomeComponent },
         { path: 'cart', component: UserCartComponent },
         { path: 'shop', component: ShopComponent },
-        { path: 'blog', component: BlogComponent }
+        { path: 'blog', component: BlogComponent },
+        { path: 'shop', component: ShopComponent },
+        { path: 'recipes', component: RecipesComponent }
       ]
     },
     {
