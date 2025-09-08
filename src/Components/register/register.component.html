@@ -1,0 +1,108 @@
+
+<section>
+ <div class="container bg-light">
+  <div class="w-75 mx-auto">
+   <form action="" [formGroup]="registerForm" (ngSubmit)="submitForm()">
+                <div class="mb-3">
+                    <label for="username" class="form-label">User name</label>
+                    <input [ngClass]="{'is-valid':!registerForm.get('Username')?.errors&&registerForm.get('Username')?.touched,'is-invalid':registerForm.get('Username')?.errors&&registerForm.get('Username')?.touched}" 
+                    type="text" class="form-control" id="username" placeholder="Username" formControlName="Username">
+                    @if(registerForm.get("Username")?.errors
+                     && registerForm.get("Username")?.touched){
+                         <div class="alert alert-warning my-2 p-2 fs-6 rounded-2">
+                       @if(registerForm.get("Username")?.getError('required')){
+                         <p>Username is required</p>
+                       }
+                       @if(registerForm.get("Username")?.getError('minLength')){
+                         <p>minimum length is 3 characters</p>
+                       }
+                       @if(registerForm.get("Username")?.getError('maxLength')){
+                         <p>maximum length is 15 characters</p>
+                       }
+                    </div>
+                }
+                   
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input [ngClass]="{'is-valid':!registerForm.get('Email')?.errors
+                    && registerForm.get('Email')?.touched,'is-invalid':registerForm.get('Email')?.errors
+                && registerForm.get('Email')?.touched}"
+                    type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="Email">
+                    @if(registerForm.get("Email")?.errors
+                    && registerForm.get("Email")?.touched){
+                    <div class="alert alert-warning my-2 p-2 fs-6 rounded-2">
+                        @if(registerForm.get("Email")?.getError('required')){
+                        <p>Email is required</p>
+                        }
+                        @if(registerForm.get("Email")?.getError('email')){
+                        <p>Wrong Email Format</p>
+                        }
+                        @if(registerForm.get("Email")?.getError('pattern')){
+                        <p>maximum length is 15 characters</p>
+                        }
+                    </div>
+                    }
+                </div>
+                
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input [ngClass]="{'is-valid':!registerForm.get('Phone')?.errors
+                    && registerForm.get('Phone')?.touched,'is-invalid':registerForm.get('Phone')?.errors
+                && registerForm.get('Phone')?.touched}" 
+                    type="tel" class="form-control" id="phone" placeholder="01XXXXXXXXX" formControlName="Phone">
+                    @if(registerForm.get("Phone")?.errors
+                    && registerForm.get("Phone")?.touched){
+                    <div class="alert alert-warning my-2 p-2 fs-6 rounded-2">
+                        @if(registerForm.get("Phone")?.getError('pattern')){
+                        <p>Wrong Phone format</p>
+                        }
+                        @if(registerForm.get("Phone")?.getError('required')){
+                        <p> Phone Number is required</p>
+                        }
+                      
+                    </div>
+                    }
+                    
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input [ngClass]="{'is-valid':!registerForm.get('Password')?.errors
+                    && registerForm.get('Password')?.touched,'is-invalid':registerForm.get('Password')?.errors
+                && registerForm.get('Password')?.touched}" 
+                     type="password" class="form-control" id="password" placeholder="********" formControlName="Password">
+                    @if(registerForm.get("Password")?.errors
+                    && registerForm.get("Password")?.touched){
+                    <div class="alert alert-warning my-2 p-2 fs-6 rounded-2">
+                        @if(registerForm.get("Password")?.getError('required')){
+                        <p>Password is required</p>
+                        }
+                        @if(registerForm.get("Password")?.getError('pattern')){
+                        <p>minimum length is 3 characters</p>
+                        }
+                      
+                    </div>
+                    }
+                </div>
+                
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input [ngClass]="{'is-valid':!(registerForm.get('confirmPassword')?.errors&&registerForm.getError('mismatch')&&registerForm.get('confirmPassword')?.touched),'is-invalid':(registerForm.get('confirmPassword')?.errors&&registerForm.getError('mismatch')&&registerForm.get('confirmPassword')?.touched)}" 
+                    type="password" class="form-control" id="confirmPassword" placeholder="********"
+                        formControlName="confirmPassword">
+                       @if(registerForm.getError("mismatch")&&registerForm.get("confirmPassword")?.touched){
+                        <div class="alert alert-warning my-2 p-2 fs-6 rounded-2">
+                            <p>Passwords does not match</p>
+                        </div>
+                        
+                       }
+                </div>
+                  
+                <button class="btn btn-success w-50 d-block mx-auto my-3"
+                   >Submit</button>
+            </form>
+        </div>
+    </div>
+</section>

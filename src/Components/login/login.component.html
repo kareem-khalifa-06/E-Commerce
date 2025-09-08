@@ -1,0 +1,62 @@
+<section>
+    <div class="container ">
+        <div class="w-75 mx-auto">
+            <form action="" class ="bg-light p-3" [formGroup]="loginForm"
+            (ngSubmit)="submitForm()">
+            
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">email address</label>
+                    <input
+                        [ngClass]="{'is-valid':!loginForm.get('email')?.errors
+                        && loginForm.get('email')?.touched,'is-invalid':loginForm.get('email')?.errors
+                    && loginForm.get('email')?.touched}"
+                        type="email" class="form-control" id="email" placeholder="name@example.com"
+                        formControlName="email">
+                    @if(loginForm.get("email")?.errors
+                    && loginForm.get("email")?.touched){
+                    <div class="alert alert-warning my-2 p-2 fs-6 rounded-2">
+                        @if(loginForm.get("email")?.getError('required')){
+                        <p>email is required</p>
+                        }
+                        @if(loginForm.get("email")?.getError('email')){
+                        <p>Wrong email Format</p>
+                        }
+                        @if(loginForm.get("email")?.getError('pattern')){
+                        <p>maximum length is 15 characters</p>
+                        }
+                    </div>
+                    }
+                </div>
+
+               
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input
+                    [ngClass]="{'is-valid':!loginForm.get('password')?.errors
+                    && loginForm.get('password')?.touched,'is-invalid':loginForm.get('password')?.errors
+                && loginForm.get('password')?.touched}"
+                        type="password" class="form-control" id="password" placeholder="********"
+                        formControlName="password">
+                    @if(loginForm.get("password")?.errors
+                    && loginForm.get("password")?.touched){
+                    <div class="alert alert-warning my-2 p-2 fs-6 rounded-2">
+                        @if(loginForm.get("password")?.getError('required')){
+                        <p>password is required</p>
+                        }
+                        @if(loginForm.get("password")?.getError('pattern')){
+                        <p>minimum length is 3 characters</p>
+                        }
+
+                    </div>
+                    }
+                </div>
+
+            
+
+                <button class="btn btn-success w-50 d-block mx-auto my-3">Login</button>
+            </form>
+        </div>
+    </div>
+</section>
